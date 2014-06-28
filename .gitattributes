@@ -1,22 +1,13 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+var http = require('http');
 
-# Custom for Visual Studio
-*.cs     diff=csharp
-*.sln    merge=union
-*.csproj merge=union
-*.vbproj merge=union
-*.fsproj merge=union
-*.dbproj merge=union
+http.createServer( function(req,res) {
 
-# Standard to msysgit
-*.doc	 diff=astextplain
-*.DOC	 diff=astextplain
-*.docx diff=astextplain
-*.DOCX diff=astextplain
-*.dot  diff=astextplain
-*.DOT  diff=astextplain
-*.pdf  diff=astextplain
-*.PDF	 diff=astextplain
-*.rtf	 diff=astextplain
-*.RTF	 diff=astextplain
+        var currentTime = new Date();
+        console.log('Client Called at '+currentTime);
+
+        res.writeHead(200, {'Content-Type':'text/plain'});
+        res.write('Hello World\n');
+        res.write('You guys are in the server!');
+        res.end();
+
+}).listen('8124');
